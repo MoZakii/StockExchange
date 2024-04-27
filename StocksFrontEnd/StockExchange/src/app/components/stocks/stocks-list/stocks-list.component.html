@@ -1,0 +1,22 @@
+<div class="container my-5">
+    <h1 class="mb-3">Stocks</h1>
+
+    <table class="table" *ngIf="stocks && stocks.length > 0">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Price</th>
+                <th>History<th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor ="let stock of stocks">
+                <td>{{stock.symbol}}</td>
+                <td>{{stock.price}}</td>
+                <td><a [routerLink]="['history', stock.symbol]">View</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="!stocks || stocks.length <= 0">No Stocks Found</p>
+
+</div>

@@ -1,0 +1,20 @@
+<div class="container my-5">
+    <h1 class="mb-3">Stock History for {{getLastPartOfCurrentPath()}}</h1>
+
+    <table class="table" *ngIf="stocks && stocks.length > 0">
+        <thead>
+            <tr>
+                <th>Price</th>
+                <th>TimeStamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor ="let stock of stocks">
+                <td>{{stock.price}}</td>
+                <td>{{stock.timestamp | date:'short'}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="!stocks || stocks.length <= 0">No Stocks Found</p>
+
+</div>
